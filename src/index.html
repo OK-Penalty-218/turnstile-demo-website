@@ -1,92 +1,66 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo Website</title>
+<title>Demo Website</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap.min.css" integrity="sha512-siwe/oXMhSjGCwLn+scraPOWrJxHlUgMBMZXdPe2Tnk3I0x3ESCoLz7WZ5NTH6SZrywMY+PB1cjyqJ5jAluCOg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css" integrity="sha512-5PV92qsds/16vyYIJo3T/As4m2d8b6oWYfoqV+vtizRB6KhF1F9kYzWzQmsO6T3z3QG2Xdhrx7FQ+5R1LiQdUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+<style>
+html,
+body {
+  height: 100%;
+}
 
-  <!-- Include Bootstrap (optional, for styling) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstr>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstr>
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #fefefe;
+}
 
-  <!-- Load Turnstile API -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer><>
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
 
-  <style>
-    html, body {
-      height: 100%;
-    }
-    body {
-      display: flex;
-     align-items: center;
-      justify-content: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #fefefe;
-    }
+.form-signin .checkbox {
+  font-weight: 400;
+}
 
-    .turnstile-container {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      text-align: center;
-    }
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
 
-    .turnstile-widget {
-      margin-bottom: 20px;
-    }
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
 
-    .error-message {
-      color: red;
-      display: none;
-      font-weight: bold;
-    }
-  </style>
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
 </head>
 <body>
 <main class="form-signin">
   <form method="POST" action="/handler">
-    <h2 class="h3 mb-3 fw-normal">Demo</h2>
+    <h2 class="h3 mb-3 fw-normal">Turnstile &dash; Dummy Demo</h2>
 
-<div class="turnstile-container">
-  <h2 class="h3 mb-3 fw-normal">Please complete the CAPTCHA</h2>
     <div class="checkbox mb-3">
-    
       <!-- The following line controls and configures the Turnstile widget. -->
-      export default {
-  async fetch(request, env) {
-    const SITE_KEY = env.SITE_KEY
-    let res = await fetch(request)
-
-    // Instantiate the API to run on specific elements, for example, `head`, `div`
-    let newRes = new HTMLRewriter()
-
-      // `.on` attaches the element handler and this allows you to match on element/attributes or to use the specific methods per the API
-      .on('head', {
-        element(element) {
-
-          // In this case, you are using `append` to add a new script to the `head` element
-          element.append(`<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>`, { html: true });
-        },
-      })
-      .on('div', {
-        element(element) {
-
-          // You are using the `getAttribute` method here to retrieve the `id` or `class` of an element
-          if (element.getAttribute('id') === <NAME_OF_ATTRIBUTE>) {
-            element.append(`<div class="cf-turnstile" data-sitekey="${SITE_KEY}" data-theme="light"></div>`, { html: true });
-          }
-        },
-      })
-      .transform(res);
-    return newRes
-  }
-}
+      <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>
       <!-- end. -->
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
-    <p class="mt-5 mb-3 text-muted"><a href="https://www.example.com"></a></p>
-    <p class="mt-5 mb-3 text-muted"><a href="/index.mjs"></a></p>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted"><a href="https://github.com/cloudflare/turnstile-demo-workers"><i class="bi bi-github"></i> See code</a></p>
+    <p class="mt-5 mb-3 text-muted">Go to the <a href="/explicit">explicit render demo</a></p>
   </form>
+</main>
 </body>
 </html>
