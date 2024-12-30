@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Demo Website</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/boots>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap.min>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 <style>
   html, body {
@@ -28,17 +28,17 @@
 <body>
 <main class="form-submit">
   <form id="captchaForm" method="POST" action="verify.php">
-    <h2 class="h3 mb-3 fw-normal">Turnstile &dash; Dummy Demo</h2>
+    <h2 class="h3 mb-3 fw-normal">Turnstile &dash; Demo</h2>
 
     <div class="checkbox mb-3">
       <!-- Turnstile widget -->
       <div class="cf-turnstile"
-           data-sitekey="1x00000000000000000000AA"
+           data-sitekey="1x00000000000000000000AA" //replace with your key here
            data-theme="light"
            data-callback="javascriptCallback"
       ></div>
     </div>
-    <button id="submitBtn" class="w-100 btn btn-lg btn-primary" type="submit" disabled>Submit>
+    <button id="submitBtn" class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
   </form>
 
   <script>
