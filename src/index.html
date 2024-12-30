@@ -1,15 +1,23 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Demo Website</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap.min>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+    <title>Demo Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstr>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+    <script>
+        function javascriptCallback() {
+            // Set 'captchaCompleted' flag in localStorage
+            sessionStorage.setItem('captchaCompleted', 'true');
+            // Redirect to the success page
+            window.location.href = '/success.html';
+        }
+    </script>
+    <meta name="viewport" content="widthe=device-width, initial-scale=1" />
 <style>
   html, body {
     height: 100%;
   }
-
-  body {
+body {
     display: flex;
     align-items: center;
     padding-top: 40px;
@@ -28,12 +36,12 @@
 <body>
 <main class="form-submit">
   <form id="captchaForm" method="POST" action="verify.php">
-    <h2 class="h3 mb-3 fw-normal">Turnstile &dash; Demo</h2>
+    <h2 class="h3 mb-3 fw-normal">Turnstil &dash; Demo</h2>
 
     <div class="checkbox mb-3">
       <!-- Turnstile widget -->
       <div class="cf-turnstile"
-           data-sitekey="1x00000000000000000000AA" //replace with your key here
+           data-sitekey="1x00000000000000000000AA" //replace with your site key generated from cloudflare
            data-theme="light"
            data-callback="javascriptCallback"
       ></div>
@@ -47,7 +55,7 @@
       const turnstileWidget = document.querySelector(".cf-turnstile");
 
       // Listen for the `turnstile-complete` event
-      turnstileWidget.addEventListener("turnstile-complete", function() {
+     turnstileWidget.addEventListener("turnstile-complete", function() {
         document.getElementById("submitBtn").disabled = false; // Enable the submit button
       });
     });
