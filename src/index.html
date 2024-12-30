@@ -9,7 +9,7 @@
             // Set 'captchaCompleted' flag in localStorage
             sessionStorage.setItem('captchaCompleted', 'true');
             // Redirect to the success page
-            window.location.href = '/success.html';
+            window.location.href = 'success.html';
         }
     </script>
     <meta name="viewport" content="widthe=device-width, initial-scale=1" />
@@ -49,17 +49,18 @@ body {
     <button id="submitBtn" class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
   </form>
 
-  <script>
-    // Ensure the Turnstile widget triggers the event and enables the button
+<script>
+    // Ensure the submit button is disabled initially
     document.addEventListener("DOMContentLoaded", function() {
-      const turnstileWidget = document.querySelector(".cf-turnstile");
+        const submitBtn = document.getElementById("submitBtn");
+        const form = document.getElementById("captchaForm");
 
-      // Listen for the `turnstile-complete` event
-     turnstileWidget.addEventListener("turnstile-complete", function() {
-        document.getElementById("submitBtn").disabled = false; // Enable the submit button
-      });
+        // Enable the submit button when Turnstile is completed
+        form.addEventListener("turnstile-complete", function() {
+            submitBtn.disabled = false;
+        });
     });
-  </script>
+</script>
 </main>
 </body>
 </html>
