@@ -1,1 +1,22 @@
-Success!
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Success</title>
+    <script>
+        // Check if the user has completed the CAPTCHA
+        window.onload = function() {
+            // Check if the 'captchaCompleted' flag exists in sessionStorage
+            if (!sessionStorage.getItem('captchaCompleted')) {
+                // Redirect to the CAPTCHA page if not completed
+                window.location.href = '/index.html';  // Change this URL to match your CAPTCHA page
+            }
+        }
+    </script>
+  </head>
+<body>
+    <h1>Success! You have completed the CAPTCHA.</h1>
+    <p>Welcome to the success page.</p>
+</body>
+</html>
