@@ -37,7 +37,7 @@ if (isset($_POST['cf-turnstile-response'])) {
     // Check if the CAPTCHA was successfully validated
     if ($responseData['success']) {
         // CAPTCHA validated successfully
-        header('Location: /success.html'); // Redirect to success page or different URL
+        header('Location: success.html'); // Redirect to success page or different URL
             exit;
     } else {
         // CAPTCHA validation failed
